@@ -1,0 +1,13 @@
+#This section covers the physicochemical analysis
+#The puporse of this analysis is to relate DMS functional scores of mutations to changes in physicochemical properties
+
+#All analysis was performed using R-4.0.0 
+#Physicochemical properties of amino acids table was taken from:
+	https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147467	
+
+#Additional information on visualization methods can be found at:
+	http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/
+
+#To reproduce physicochemical analysis execute the following script
+	map_physicochemical_properties.R
+

@@ -1,0 +1,21 @@
+universe = vanilla
+log = pos_number_identity.log
+error = pos_number_identity.err
+
+executable = ../shs/pos_number_identity.sh
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+on_exit_remove = ExitCode =?= 0
+periodic_release = (JobStatus == 5) && ((CurrentTime - EnteredCurrentStatus) > 300) && (JobRunCount < 10) && (HoldReasonCode =!= 1) && (HoldReasonCode =!= 6) && (HoldReasonCode =!= 12) && (HoldReasonCode =!= 13) && (HoldReasonCode =!= 14) && (HoldReasonCode =!= 21) && (HoldReasonCode =!= 22)
+
+initialdir = /scratch/phuss/ddg/muts/pos_number/identity/
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/knishikawa/rosetta_3_10/static_database.tar.gz, /scratch/ameger/software/static_Rosetta/main/source/bin/ddg_monomer.static.linuxgccrelease, /scratch/phuss/ddg/setup/4A0T.pdb, /scratch/phuss/ddg/setup/input.cst, /scratch/phuss/ddg/setup/ddg_flags, /scratch/phuss/ddg/muts/pos_number/identity/pos_number_identity.mutfile
+
+request_cpus = 1
+request_memory = 400MB
+request_disk = 100MB
+
++WantFlocking = true
+
+queue 1

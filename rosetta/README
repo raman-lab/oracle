@@ -1,0 +1,14 @@
+#This section covers the Rosetta ddG calculations of the bacteriophage T7 fibre gp17
+#All calculations were performed using Rosetta v3.10
+
+#Additional ddg_monomer information may be found at: 
+	https://www.rosettacommons.org/docs/latest/application_documentation/analysis/ddg-monomer
+
+#Structure of the carboxy-terminal domain of bacteriophage T7 fibre gp17 was taken from:
+	https://www.rcsb.org/structure/4a0t
+
+#Scripts to recreate this data should be executed in this order:
+        setupStructure.sh
+        runRosetta.sh
+        extractDDGs.sh
+
