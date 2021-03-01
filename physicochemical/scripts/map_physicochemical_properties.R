@@ -113,3 +113,157 @@ p + stat_compare_means(method="kruskal.test", label="p.format", label.x=1.6, lab
 dev.off()
 #----------------------------------------------------------------------------------------------
 
+#Wilcoxon pairwise effect size comparisons
+#The r value varies from 0 to close to 1. The interpretation values for r commonly in published 
+#literature and on the internet are: 0.10 - < 0.3 (small effect), 0.30 - < 0.5 (moderate effect) 
+#and >= 0.5 (large effect).
+
+#install.packages("rcompanion")
+library(rcompanion)
+#install.packages("rstatix", dependencies = T)
+library(rstatix)
+
+hydrophobicity <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  hydrophobicity[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, hydrophobicity ~ group)
+  for(j in 1:3)
+  {
+    hydrophobicity[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(hydrophobicity) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(hydrophobicity, file="effect_sizes/hydrophobicity.csv", row.names=F, quote=F)
+
+hydrophilicity <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  hydrophilicity[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, hydrophilicity ~ group)
+  for(j in 1:3)
+  {
+    hydrophilicity[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(hydrophilicity) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(hydrophilicity, file="effect_sizes/hydrophilicity.csv", row.names=F, quote=F)
+
+hydrogen_bond <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  hydrogen_bond[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, hydrogen_bond ~ group)
+  for(j in 1:3)
+  {
+    hydrogen_bond[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(hydrogen_bond) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(hydrogen_bond, file="effect_sizes/hydrogen_bond.csv", row.names=F, quote=F)
+
+volume <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  volume[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, volume ~ group)
+  for(j in 1:3)
+  {
+    volume[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(volume) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(volume, file="effect_sizes/volume.csv", row.names=F, quote=F)
+
+polarity <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  polarity[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, polarity ~ group)
+  for(j in 1:3)
+  {
+    polarity[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(polarity) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(polarity, file="effect_sizes/polarity.csv", row.names=F, quote=F)
+
+polarizability <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  polarizability[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, polarizability ~ group)
+  for(j in 1:3)
+  {
+    polarizability[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(polarizability) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(polarizability, file="effect_sizes/polarizability.csv", row.names=F, quote=F)
+
+sasa <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  sasa[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, sasa ~ group)
+  for(j in 1:3)
+  {
+    sasa[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(sasa) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(sasa, file="effect_sizes/sasa.csv", row.names=F, quote=F)
+
+charge <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  charge[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, charge ~ group)
+  for(j in 1:3)
+  {
+    charge[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(charge) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(charge, file="effect_sizes/charge.csv", row.names=F, quote=F)
+
+mass <- as.data.frame(matrix(0,15,8))
+for(i in 1:length(unique(global$strain)))
+{
+  c <- 3*i-2
+  ss <- subset(global, global$strain == unique(global$strain)[i])
+  mass[c:(c+2),1] <- as.character(unique(global$strain)[i])
+  effsize <- wilcox_effsize(ss, mass ~ group)
+  for(j in 1:3)
+  {
+    mass[c,2:8] <- effsize[j,1:7]
+    c <- c+1
+  }
+}
+colnames(mass) <- c("strain","pchem",colnames(effsize)[2:7])
+write.csv(mass, file="effect_sizes/mass.csv", row.names=F, quote=F)
+
