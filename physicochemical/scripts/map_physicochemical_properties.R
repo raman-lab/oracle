@@ -113,7 +113,7 @@ p + stat_compare_means(method="kruskal.test", label="p.format", label.x=1.6, lab
 dev.off()
 #----------------------------------------------------------------------------------------------
 
-#Wilcoxon pairwise effect size comparisons
+#Wilcoxon effect size comparisons
 #The r value varies from 0 to close to 1. The interpretation values for r commonly in published 
 #literature and on the internet are: 0.10 - < 0.3 (small effect), 0.30 - < 0.5 (moderate effect) 
 #and >= 0.5 (large effect).
